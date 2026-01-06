@@ -28,7 +28,6 @@ import React, { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "sonner";
 import { ReceiptScanner } from "./receipt-scanner";
-import { deserializeJsonResponse } from "@prisma/client/runtime/library";
 
 const AddTransactionForm = ({
   accounts,
