@@ -10,8 +10,6 @@ import { Arapey } from "next/font/google";
 
 const genAi = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
 
-console.log("models list : ", genAi.ListModels);
-
 const serializeAmount = (obj) => ({
   ...obj,
   amount: obj.amount.toNumber(),
