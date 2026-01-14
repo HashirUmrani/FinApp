@@ -15,9 +15,12 @@ import {
 import { Progress } from "@/components/ui/progress";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { updateBudget } from "@/actions/budget";
 
-export function BudgetProgress({ initialBudget, currentExpenses }) {
+export function BudgetProgress({
+  initialBudget,
+  currentExpenses,
+  updateBudget, // ✅ server action passed from wrapper
+}) {
   const [isEditing, setIsEditing] = useState(false);
   const [newBudget, setNewBudget] = useState(
     initialBudget?.amount?.toString() || ""
@@ -70,6 +73,7 @@ export function BudgetProgress({ initialBudget, currentExpenses }) {
           <CardTitle className="text-sm font-medium">
             Monthly Budget (Default Account)
           </CardTitle>
+
           <div className="flex items-center gap-2 mt-1">
             {isEditing ? (
               <div className="flex items-center gap-2">
@@ -82,6 +86,7 @@ export function BudgetProgress({ initialBudget, currentExpenses }) {
                   autoFocus
                   disabled={isLoading}
                 />
+
                 <Button
                   variant="ghost"
                   size="icon"
@@ -90,6 +95,7 @@ export function BudgetProgress({ initialBudget, currentExpenses }) {
                 >
                   <Check className="h-4 w-4 text-green-500" />
                 </Button>
+
                 <Button
                   variant="ghost"
                   size="icon"
@@ -108,6 +114,7 @@ export function BudgetProgress({ initialBudget, currentExpenses }) {
                       )} of $${initialBudget.amount.toFixed(2)} spent`
                     : "No budget set"}
                 </CardDescription>
+
                 <Button
                   variant="ghost"
                   size="icon"
@@ -121,13 +128,13 @@ export function BudgetProgress({ initialBudget, currentExpenses }) {
           </div>
         </div>
       </CardHeader>
+
       <CardContent>
         {initialBudget && (
           <div className="space-y-2">
             <Progress
               value={percentUsed}
               extraStyles={`${
-                // add to Progress component
                 percentUsed >= 90
                   ? "bg-red-500"
                   : percentUsed >= 75

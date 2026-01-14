@@ -1,12 +1,12 @@
-import HeroSection from "@/components/hero";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
+import HeroSection from "../components/hero";
+import { Button } from "../components/ui/button";
+import { Card, CardContent } from "../components/ui/card";
 import {
   featuresData,
   statsData,
   howItWorksData,
   testimonialsData,
-} from "@/data/landing";
+} from "../data/landing";
 import Image from "next/image";
 import Link from "next/link";
 
